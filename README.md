@@ -1,61 +1,39 @@
-# Marlin 3D Printer Firmware
+# My Personal Fork of Marlin 3D Printer Firmware
 
-![GitHub](https://img.shields.io/github/license/marlinfirmware/marlin.svg)
-![GitHub contributors](https://img.shields.io/github/contributors/marlinfirmware/marlin.svg)
-![GitHub Release Date](https://img.shields.io/github/release-date/marlinfirmware/marlin.svg)
-[![Build Status](https://github.com/MarlinFirmware/Marlin/workflows/CI/badge.svg?branch=bugfix-2.0.x)](https://github.com/MarlinFirmware/Marlin/actions)
+![Photo](IMG_9062.jpg?raw=true "Photo")
 
-<img align="right" width=175 src="buildroot/share/pixmaps/logo/marlin-250.png" />
+## Use this at your own risk!
 
-Additional documentation can be found at the [Marlin Home Page](https://marlinfw.org/).
-Please test this firmware and let us know if it misbehaves in any way. Volunteers are standing by!
+This config is quite specific to my heavily modded Anet A8.
 
-## Marlin 2.0
+## Mod List
 
-Marlin 2.0 takes this popular RepRap firmware to the next level by adding support for much faster 32-bit and ARM-based boards while improving support for 8-bit AVR boards. Read about Marlin's decision to use a "Hardware Abstraction Layer" below.
+1. [AM8 Frame](https://www.thingiverse.com/thing:2263216)
+2. [2040 Frame Extension](https://www.thingiverse.com/thing:3540836) (lost 10mm of Y axis from the original setup, remember to add 20 mm for the Y frame)
+3. [2020 Filament Guide](https://www.thingiverse.com/thing:4174461)
+4. Mosfet for hotend (because I already have it for the bed on previous mod)
+5. [X belt tensioner](https://www.thingiverse.com/thing:2193858)
+6. Fiberglass reinforced timing belt (for X and Y)
+7. Extruder:
+   1. Trianglelab Titan Extruder ([Mount](https://www.thingiverse.com/thing:3807114))
+   2. E3D V6 hotend + Volcano heatblock (clone)
+   3. 18mm compatible Z-probe
+   4. Spriya fan duct
+8. Magnetic textured PEI build plate (also have the untextured one, but I hardly use it)
+9. AC bed heater controlled with SSR
+10. [Better Y-belt clamp](https://www.thingiverse.com/thing:2249112)
+11. Meanwell 350Watt PSU
+12. BigTreeTech SKR v1.3 + TMC2209s (and Z-splitter)
+13. BigTreeTech TFT24 Screen (although I hate it. I'll replace it as soon as I have the time)
+14. Raspberry Pi 3B+ running OctoPi.
+15. Acrylic enclosure.
 
-Download earlier versions of Marlin on the [Releases page](https://github.com/MarlinFirmware/Marlin/releases).
+As you can see, almost everything from the A8 has been replaced. The only stock parts are the X, Y, Z motors, and the guide rods. And the bed frame. But it is at the point where it is as good as my 2D printer. Just pop the model into PrusaSlicer, send to OctoPi, and wait a bit.
 
-## Building Marlin 2.0
+## Todo
 
-To build Marlin 2.0 you'll need [Arduino IDE 1.8.8 or newer](https://www.arduino.cc/en/main/software) or [PlatformIO](http://docs.platformio.org/en/latest/ide.html#platformio-ide). Detailed build and install instructions are posted at:
-
-  - [Installing Marlin (Arduino)](http://marlinfw.org/docs/basics/install_arduino.html)
-  - [Installing Marlin (VSCode)](http://marlinfw.org/docs/basics/install_platformio_vscode.html).
-
-### Supported Platforms
-
-  Platform|MCU|Example Boards
-  --------|---|-------
-  [Arduino AVR](https://www.arduino.cc/)|ATmega|RAMPS, Melzi, RAMBo
-  [Teensy++ 2.0](http://www.microchip.com/wwwproducts/en/AT90USB1286)|AT90USB1286|Printrboard
-  [Arduino Due](https://www.arduino.cc/en/Guide/ArduinoDue)|SAM3X8E|RAMPS-FD, RADDS, RAMPS4DUE
-  [LPC1768](http://www.nxp.com/products/microcontrollers-and-processors/arm-based-processors-and-mcus/lpc-cortex-m-mcus/lpc1700-cortex-m3/512kb-flash-64kb-sram-ethernet-usb-lqfp100-package:LPC1768FBD100)|ARM® Cortex-M3|MKS SBASE, Re-ARM, Selena Compact
-  [LPC1769](https://www.nxp.com/products/processors-and-microcontrollers/arm-microcontrollers/general-purpose-mcus/lpc1700-cortex-m3/512kb-flash-64kb-sram-ethernet-usb-lqfp100-package:LPC1769FBD100)|ARM® Cortex-M3|Smoothieboard, Azteeg X5 mini, TH3D EZBoard
-  [STM32F103](https://www.st.com/en/microcontrollers-microprocessors/stm32f103.html)|ARM® Cortex-M3|Malyan M200, GTM32 Pro, MKS Robin, BTT SKR Mini
-  [STM32F401](https://www.st.com/en/microcontrollers-microprocessors/stm32f401.html)|ARM® Cortex-M4|ARMED, Rumba32, SKR Pro, Lerdge, FYSETC S6
-  [STM32F7x6](https://www.st.com/en/microcontrollers-microprocessors/stm32f7x6.html)|ARM® Cortex-M7|The Borg, RemRam V1
-  [SAMD51P20A](https://www.adafruit.com/product/4064)|ARM® Cortex-M4|Adafruit Grand Central M4
-  [Teensy 3.5](https://www.pjrc.com/store/teensy35.html)|ARM® Cortex-M4|
-  [Teensy 3.6](https://www.pjrc.com/store/teensy36.html)|ARM® Cortex-M4|
-
-## Submitting Changes
-
-- Submit **Bug Fixes** as Pull Requests to the ([bugfix-2.0.x](https://github.com/MarlinFirmware/Marlin/tree/bugfix-2.0.x)) branch.
-- Follow the [Coding Standards](http://marlinfw.org/docs/development/coding_standards.html) to gain points with the maintainers.
-- Please submit your questions and concerns to the [Issue Queue](https://github.com/MarlinFirmware/Marlin/issues).
-
-## Marlin Support
-
-For best results getting help with configuration and troubleshooting, please use the following resources:
-
-- [Marlin Documentation](http://marlinfw.org) - Official Marlin documentation
-- [Marlin Discord](https://discord.gg/n5NJ59y) - Discuss issues with Marlin users and developers
-- Facebook Group ["Marlin Firmware"](https://www.facebook.com/groups/1049718498464482/)
-- RepRap.org [Marlin Forum](http://forums.reprap.org/list.php?415)
-- [Tom's 3D Forums](https://forum.toms3d.org/)
-- Facebook Group ["Marlin Firmware for 3D Printers"](https://www.facebook.com/groups/3Dtechtalk/)
-- [Marlin Configuration](https://www.youtube.com/results?search_query=marlin+configuration) on YouTube
+- ~~List all the changes from the original Anet A8~~
+- Add more things todo? Seriously, my printer is quite *complete*
 
 ## Credits
 
