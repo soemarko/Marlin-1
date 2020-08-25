@@ -30,7 +30,7 @@
 #define Y_DIAG_PIN                         P1_27  // Y-
 #define Z_DIAG_PIN                         P1_25  // Z-
 #define E0_DIAG_PIN                        P1_28  // X+
-#define E1_DIAG_PIN                        P1_26  // Y+
+// #define E1_DIAG_PIN                        P1_26  // Y+
 
 //
 // Limit Switches
@@ -50,13 +50,13 @@
 #ifdef Y_STALL_SENSITIVITY
   #define Y_STOP_PIN                  Y_DIAG_PIN
   #if Y_HOME_DIR < 0
-    #define Y_MAX_PIN                      P1_26  // Y+
+   //  #define Y_MAX_PIN                      P1_26  // Y+
   #else
-    #define Y_MIN_PIN                      P1_26  // Y+
+   //  #define Y_MIN_PIN                      P1_26  // Y+
   #endif
 #else
   #define Y_MIN_PIN                        P1_27  // Y-
-  #define Y_MAX_PIN                        P1_26  // Y+
+//   #define Y_MAX_PIN                        P1_26  // Y+
 #endif
 
 #ifdef Z_STALL_SENSITIVITY
@@ -77,7 +77,7 @@
 // Servos
 //
 #ifndef SERVO0_PIN
-  #define SERVO0_PIN                       P2_00
+  #define SERVO0_PIN                       P1_26	//P2_00
 #endif
 
 //
