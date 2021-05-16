@@ -35,6 +35,69 @@ As you can see, almost everything from the A8 has been replaced. The only stock 
 - ~~List all the changes from the original Anet A8~~
 - Add more things todo? Seriously, my printer is quite *complete*
 
+## M503
+
+```
+Send: M503
+Recv: echo:  G21    ; Units in mm (mm)
+Recv: echo:  M149 C ; Units in Celsius
+Recv: 
+Recv: echo:; Filament settings: Disabled
+Recv: echo:  M200 S0 D1.75
+Recv: echo:; Steps per unit:
+Recv: echo: M92 X400.00 Y400.00 Z400.00 E411.00
+Recv: echo:; Maximum feedrates (units/s):
+Recv: echo:  M203 X300.00 Y300.00 Z12.00 E25.00
+Recv: echo:; Maximum Acceleration (units/s2):
+Recv: echo:  M201 X3000.00 Y3000.00 Z500.00 E3000.00
+Recv: echo:; Acceleration (units/s2): P<print_accel> R<retract_accel> T<travel_accel>
+Recv: echo:  M204 P1000.00 R1000.00 T1000.00
+Recv: echo:; Advanced: B<min_segment_time_us> S<min_feedrate> T<min_travel_feedrate> J<junc_dev>
+Recv: echo:  M205 B20000.00 S0.00 T0.00 J0.01
+Recv: echo:; Home offset:
+Recv: echo:  M206 X0.00 Y0.00 Z0.00
+Recv: echo:; Auto Bed Leveling:
+Recv: echo:  M420 S0 Z0.00
+Recv: echo:  G29 W I0 J0 Z0.20000
+Recv: echo:  G29 W I1 J0 Z0.11750
+Recv: echo:  G29 W I2 J0 Z-0.04000
+Recv: echo:  G29 W I0 J1 Z0.25500
+Recv: echo:  G29 W I1 J1 Z0.01750
+Recv: echo:  G29 W I2 J1 Z-0.05500
+Recv: echo:  G29 W I0 J2 Z0.16750
+Recv: echo:  G29 W I1 J2 Z-0.01250
+Recv: echo:  G29 W I2 J2 Z-0.13250
+Recv: echo:  G29 W I0 J3 Z0.08750
+Recv: echo:  G29 W I1 J3 Z-0.05000
+Recv: echo:  G29 W I2 J3 Z-0.10000
+Recv: echo:; Servo Angles:
+Recv: echo:  M281 P0 L150 U50
+Recv: echo:; Material heatup parameters:
+Recv: echo:  M145 S0 H180 B50 F0
+Recv: echo:  M145 S1 H210 B70 F0
+Recv: echo:; PID settings:
+Recv: echo:  M301 P16.12 I0.54 D121.28
+Recv: echo:  M304 P179.89 I25.53 D316.83
+Recv: echo:; Z-Probe Offset (mm):
+Recv: echo:  M851 X40.00 Y-5.00 Z-0.90
+Recv: echo:; Stepper driver current:
+Recv: echo:  M906 X420 Y360 Z500
+Recv: echo:  M906 T0 E420
+Recv: 
+Recv: echo:; Hybrid Threshold:
+Recv: echo:  M913 X100 Y100 Z3
+Recv: echo:  M913 T0 E30
+Recv: 
+Recv: echo:; Driver stepping mode:
+Recv: echo:  M569 S1 X Y Z
+Recv: echo:  M569 S1 T0 E
+Recv: echo:; Linear Advance:
+Recv: echo:  M900 K0.00
+Recv: echo:; Filament load/unload lengths:
+Recv: echo:  M603 L0.00 U100.00
+Recv: ok
+```
+
 ## Credits
 
 The current Marlin dev team consists of:

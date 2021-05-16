@@ -416,7 +416,7 @@
  *   998 : Dummy Table that ALWAYS reads 25°C or the temperature defined below.
  *   999 : Dummy Table that ALWAYS reads 100°C or the temperature defined below.
  */
-#define TEMP_SENSOR_0 5
+#define TEMP_SENSOR_0 1
 #define TEMP_SENSOR_1 0
 #define TEMP_SENSOR_2 0
 #define TEMP_SENSOR_3 0
@@ -500,9 +500,9 @@
     #define DEFAULT_Ki_LIST {   1.08,   1.08 }
     #define DEFAULT_Kd_LIST { 114.00, 114.00 }
   #else
-    #define DEFAULT_Kp  10.12
-    #define DEFAULT_Ki   0.53
-    #define DEFAULT_Kd  48.49
+    #define DEFAULT_Kp  19.81
+    #define DEFAULT_Ki   0.77
+    #define DEFAULT_Kd  128.12
   #endif
 #endif // PIDTEMP
 
@@ -566,7 +566,7 @@
  * *** IT IS HIGHLY RECOMMENDED TO LEAVE THIS OPTION ENABLED! ***
  */
 #define PREVENT_COLD_EXTRUSION
-#define EXTRUDE_MINTEMP 170
+#define EXTRUDE_MINTEMP 120
 
 /**
  * Prevent a single extrusion longer than EXTRUDE_MAXLENGTH.
@@ -987,7 +987,7 @@
  *     |    [-]    |
  *     O-- FRONT --+
  */
-#define NOZZLE_TO_PROBE_OFFSET { 40, -5, -1.65 }
+#define NOZZLE_TO_PROBE_OFFSET { 40, -5, -0.76 }
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
